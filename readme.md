@@ -69,6 +69,6 @@ En resumen, esta base de datos proporciona una estructura para organizar y gesti
 DIAGRAMA DE ENTIDAD-RELACION
 
 ```
+![image](https://github.com/GABRIELA-LIQUITAY/NOAH_SISTEMAS-LIQUITAY-NADIA/assets/173738215/25734995-5f56-430a-85ed-352b0a99e3a0)
 
-![DIAGRAMA](https://github.com/GABRIELA-LIQUITAY/NOAH_SISTEMAS-LIQUITAY-NADIA/assets/173738215/f49e8f96-4af5-49c4-9499-ed9346731138)
 
