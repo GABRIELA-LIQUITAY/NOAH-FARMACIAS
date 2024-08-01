@@ -70,4 +70,11 @@ DIAGRAMA DE ENTIDAD-RELACION
 
 ![image](https://github.com/GABRIELA-LIQUITAY/NOAH_SISTEMAS-LIQUITAY-NADIA/assets/173738215/25734995-5f56-430a-85ed-352b0a99e3a0)
 
+SEGUNDA PARTE DE LA ENTREGA
+Segunda PreIngreso de SQL
+Listado de Vistas más una descripción detallada, su objetivo, y qué tablas las componen.
+Listado de funciones que incluyen una descripción detallada, el objetivo para la cual fueron creados y qué datos o tablas manipulan y/o son implementadas.
+Listado de Procedimientos Almacenados con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúan
+Listado de activadores
+
 
