@@ -93,14 +93,14 @@ DIAGRAMA DE ENTIDAD-RELACION
 
 
 ### Documentacion de Vistas
-### Vista: ReservasPorFecha
+### Vista: PedidoPorFecha
 
-**Descripción:** Esta vista muestra estadísticas sobre las reservas realizadas en diferentes fechas, como el número total de reservas por día, por semana o por mes.
+**Descripción:** Esta vista muestra estadísticas sobre pedidos realizados en diferentes fechas, como el número total de pedidos por día, por semana o por mes.
 
 **Columnas:**
 
-* **Fecha:** Fecha de la reserva (formato YYYY-MM-DD)
-* **TotalReservas:** Número total de reservas realizadas en la fecha indicada
+* **Fecha:** Fecha del pedido (formato YYYY-MM-DD)
+* **TotalPedido:** Número total de pedido realizadas en la fecha indicada
 
 **Ejemplo de consulta:**
 
@@ -110,15 +110,15 @@ WHERE Fecha BETWEEN '2010-12-01' AND '2023-12-31'
 ORDER BY Fecha ASC;
 ```
 
-### Vista: ReservasPorMesa
+### Vista: PedidoPorProducto
 
-**Descripción:** Esta vista muestra la cantidad de reservas realizadas para cada mesa, así como la capacidad total de la mesa.
+**Descripción:** Esta vista muestra la cantidad de pedidos realizados por producto, así como la capacidad total del producto.
 
 **Columnas:**
 
-* **IDMesa:** Identificador único de la mesa
-* **Capacidad:** Número de personas que la mesa puede acomodar
-* **TotalReservas:** Número total de reservas realizadas para la mesa
+* **IDProducto:** Identificador único del producto
+* **Cantidad:** Número productos
+* **TotalPedido:** Número total de pedidos realizadas para ese producto
 
 **Ejemplo de consulta:**
 
@@ -127,14 +127,14 @@ SELECT * FROM ReservasPorMesa
 ORDER BY TotalReservas DESC;
 ```
 
-### Vista: CancelacionesPorTipoReserva
+### Vista: CancelacionesPorTipoPedido
 
-**Descripción:** Esta vista muestra la cantidad de cancelaciones para cada tipo de reserva.
+**Descripción:** Esta vista muestra la cantidad de cancelaciones para cada tipo de pedido.
 
 **Columnas:**
 
-* **Tipo:** Tipo de reserva (ej. "Normal", "Grupal", etc.)
-* **TotalCancelaciones:** Número total de cancelaciones para el tipo de reserva
+* **Tipo:** Tipo de pedido  (ej. "Normal", "Grupal", etc.)
+* **TotalCancelaciones:** Número total de cancelaciones para el tipo de pedido
 
 **Ejemplo de consulta:**
 
@@ -145,9 +145,9 @@ ORDER BY TotalCancelaciones DESC;
 
 ## Documentación de Funciones 
 
-### Función: mesa_cancelada
+### Función: producto_cancelada
 
-**Descripción:** Esta función verifica si una mesa está cancelada para una reserva.
+**Descripción:** Esta función verifica si u producto está cancelada para un pedido.
 
 **Parámetros:**
 
@@ -155,7 +155,7 @@ ORDER BY TotalCancelaciones DESC;
 
 **Retorno:**
 
-* **TRUE** si la mesa está cancelada para alguna reserva, **FALSE** en caso contrario
+* **TRUE** si producto está cancelado para alguna pedido, **FALSE** en caso contrario
 
 **Ejemplo de uso:**
 
@@ -163,11 +163,11 @@ ORDER BY TotalCancelaciones DESC;
 SELECT mesa_cancelada(10);
 ```
 
-**Nota:** La función solo verifica si la mesa está cancelada para alguna reserva. No indica si la mesa está disponible para una nueva reserva en este momento.
+**Nota:** La función solo verifica si el producto está cancelado en algun pedido. No indica si producto está disponible para una nueva pedido en este momento.
 
 ### Función: contar_reservas_cliente
 
-**Descripción:** Esta función cuenta la cantidad de reservas realizadas por un cliente en un intervalo de tiempo.
+**Descripción:** Esta función cuenta la cantidad de pedidos realizados por un cliente en un intervalo de tiempo.
 
 **Parámetros:**
 
@@ -177,7 +177,7 @@ SELECT mesa_cancelada(10);
 
 **Retorno:**
 
-* Número total de reservas realizadas por el cliente en el intervalo de tiempo especificado
+* Número total de pedidos realizadas por el cliente en el intervalo de tiempo especificado
 
 **Ejemplo de uso:**
 
@@ -185,24 +185,24 @@ SELECT mesa_cancelada(10);
 SELECT contar_reservas_cliente(5, '2023-12-01', '2023-12-31');
 ```
 
-**Nota:** La función no toma en cuenta las cancelaciones de reservas.
+**Nota:** La función no toma en cuenta las cancelaciones de pedidos.
 
-### Función: cantidad_mesas_por_restaurante
+### Función: cantidad_productos_por_empresa
 
-**Descripción:** Esta función devuelve la cantidad de mesas que tiene un restaurante.
+**Descripción:** Esta función devuelve la cantidad de productos que tiene una empresa.
 
 **Parámetros:**
 
-* **restaurante_id:** Identificador único del restaurante
+* **empresa_id:** Identificador único del empresa
 
 **Retorno:**
 
-* Número total de mesas del restaurante
+* Número total de productos en la empresa
 
 **Ejemplo de uso:**
 
 ```sql
-SELECT cantidad_mesas_por_restaurante(2);
+SELECT cantidad_productos_por_empresae(2);
 ```
 
 ## Documentación de Triggers 
@@ -224,17 +224,17 @@ SELECT cantidad_mesas_por_restaurante(2);
 
 ### Trigger: after_update_cancelacion_trigger
 
-**Descripción:** Este trigger registra la cancelación de una reserva en la tabla LOG_CAMBIOS.
+**Descripción:** Este trigger registra la cancelación pedido en la tabla LOG_CAMBIOS.
 
 **Detalles:**
 
-* **Tabla afectada:** RESERVA
+* **Tabla afectada:** PEDIDO
 * **Acción:** CANCELACION
 * **Información registrada:** Fecha, ID del cliente (si se conoce), Usuario
 
 **Ejemplo:**
 
-* Se actualiza una reserva para indicar su cancelación.
+* Se actualiza un pedido para indicar su cancelación.
 * Si la cancelación no estaba presente antes, el trigger registra la acción en la tabla LOG_CAMBIOS.
 
 ### Trigger: before_insert_cliente_trigger
@@ -252,27 +252,27 @@ SELECT cantidad_mesas_por_restaurante(2);
 * Se intenta insertar un nuevo cliente con un correo electrónico ya registrado.
 * El trigger genera un error y la inserción no se realiza.
 
-### Trigger: before_insert_reserva_trigger
+### Trigger: before_insert_pedido_trigger
 
-**Descripción:** Este trigger verifica si un cliente ya tiene una reserva en la misma hora y mesa.
+**Descripción:** Este trigger verifica si un cliente ya tiene un pedido en la misma hora y mesa.
 
 **Detalles:**
 
-* **Tabla afectada:** RESERVA
+* **Tabla afectada:** PEDIDO
 * **Acción:** INSERT
-* **Validación:** No se permiten reservas duplicadas en la misma hora y mesa para un mismo cliente.
+* **Validación:** No se permiten pedidos dublicados en la misma hora y mesa para un mismo cliente.
 
 **Ejemplo:**
 
-* Se intenta reservar una mesa para un cliente que ya tiene una reserva en la misma hora y mesa.
-* El trigger genera un error y la reserva no se realiza.
+* Se intenta realizar un pedido de un producto para un cliente que ya tiene un mismo pedido en la fecha.
+* El trigger genera un error y el pedido no se realiza.
 
 
 ## Documentación de Procedimientos Almacenados
 
-### Procedimiento: actualizar_reserva_cancelada_por_email
+### Procedimiento: actualizar_pedido_cancelada_por_email
 
-**Descripción:** Este procedimiento actualiza una reserva cancelada para un cliente a partir de su correo electrónico.
+**Descripción:** Este procedimiento actualiza pedido cancelado para un cliente a partir de su correo electrónico.
 
 **Parámetros:**
 
@@ -285,17 +285,17 @@ SELECT cantidad_mesas_por_restaurante(2);
 **Ejemplo de uso:**
 
 ```sql
-CALL actualizar_reserva_cancelada_por_email('ejemplo@correo.com');
+CALL actualizar_pedido_cancelado_por_email('ejemplo@correo.com');
 ```
 
-### Procedimiento: actualizar_tipo_reserva_por_email
+### Procedimiento: actualizar_tipo_pedido_por_email
 
-**Descripción:** Este procedimiento actualiza el tipo de reserva de la última reserva realizada por un cliente a partir de su correo electrónico.
+**Descripción:** Este procedimiento actualiza el último pedido realizado por un cliente a partir de su correo electrónico.
 
 **Parámetros:**
 
 * **p_email:** Correo electrónico del cliente
-* **p_nuevo_tipo:** Nuevo tipo de reserva
+* **p_nuevo_tipo:** Nuevo tipo de pedido
 
 **Retorno:**
 
@@ -304,7 +304,7 @@ CALL actualizar_reserva_cancelada_por_email('ejemplo@correo.com');
 **Ejemplo de uso:**
 
 ```sql
-CALL actualizar_tipo_reserva_por_email('ejemplo@correo.com', 'Reserva de Grupo');
+CALL actualizar_tipo_pedido_por_email('ejemplo@correo.com', 'Pedido por mayor');
 ```
 
 ### Procedimiento: crear_empleado
@@ -316,7 +316,7 @@ CALL actualizar_tipo_reserva_por_email('ejemplo@correo.com', 'Reserva de Grupo')
 * **p_nombre:** Nombre del empleado
 * **p_telefono:** Teléfono del empleado
 * **p_correo:** Correo electrónico del empleado
-* **p_id_restaurante:** Identificador del restaurante al que pertenece el empleado
+* **p_id_empresa:** Identificador del restaurante al que pertenece el empleado
 
 **Retorno:**
 
@@ -325,7 +325,7 @@ CALL actualizar_tipo_reserva_por_email('ejemplo@correo.com', 'Reserva de Grupo')
 **Ejemplo de uso:**
 
 ```sql
-CALL crear_empleado('Juan Pérez', '123456789', 'juan.perez@ejemplo.com', 1);
+CALL crear_empleado('Pedro_juarez', '123456789', 'Pedro_juarez@ejemplo.com', 1);
 
 
 
