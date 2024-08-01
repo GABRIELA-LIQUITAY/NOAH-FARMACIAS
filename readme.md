@@ -56,10 +56,10 @@ Esta base de datos está diseñada para gestionar pedidos en Noah así como la i
 
 Esta base de datos permite gestionar eficientemente el proceso de reserva en restaurantes, desde la información de los clientes y empleados hasta la disponibilidad de mesas y el registro de reservas. Algunos aspectos que aborda incluyen:
 
-- Registro de clientes y empleados involucrados en el proceso de reserva.
-- Clasificación de las reservas según su tipo.
-- Gestión de la disponibilidad de mesas en cada restaurante.
-- Registro detallado de las reservas realizadas, incluyendo la fecha, cliente, mesa, empleado y tipo de reserva.
+- Registro de clientes y empleados involucrados en el proceso de pedidos.
+- Clasificación de los pedidos según su tipo.
+- Gestión de la disponibilidad de los productos.
+- Registro detallado de pedidos realizados, incluyendo la fecha, cliente, producto, empleado y tipo de pedido.
 
 En resumen, esta base de datos proporciona una estructura para organizar y gestionar eficientemente las operaciones de pedidos en Noah, lo que contribuye a mejorar el servicio ofrecido a los clientes y optimizar las operaciones de Noah.
 */
