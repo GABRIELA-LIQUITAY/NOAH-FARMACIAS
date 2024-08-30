@@ -60,7 +60,7 @@ BEGIN
         LIMIT 1;
         
         -- Si se encontró la reserva, actualizar el tipo de reserva
-        IF reserva_id IS NOT NULL THEN
+        IF pedido_id IS NOT NULL THEN
             UPDATE PEDIDO
             SET IDTIPOPEDIDO = (
                 SELECT IDTIPOPEDIDO FROM TIPOPEDIDO WHERE TIPO = p_nuevo_tipo
