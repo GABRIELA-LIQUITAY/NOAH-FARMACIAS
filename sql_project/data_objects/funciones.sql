@@ -62,7 +62,7 @@ READS SQL DATA
 BEGIN
     DECLARE producto_count INT;
     
-    SELECT COUNT(*) INTO mesas_count
+    SELECT COUNT(*) INTO producto_count
     FROM PRODUCTO
     WHERE IDMEPRESA = empresa_id;
     
