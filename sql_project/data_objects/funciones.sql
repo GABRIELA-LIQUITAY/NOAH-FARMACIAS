@@ -1,4 +1,3 @@
-
 USE noah_sistemas;
 
 -- Función para verificar si un producto está cancelado:
