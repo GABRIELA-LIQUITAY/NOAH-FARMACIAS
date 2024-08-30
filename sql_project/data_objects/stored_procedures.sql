@@ -96,7 +96,7 @@ BEGIN
     WHERE IDEMPRESA = p_id_empresa;
     
     -- Si el restaurante existe, insertar el empleado
-    IF restaurante_count > 0 THEN
+    IF empresa_count > 0 THEN
         INSERT INTO EMPLEADO (NOMBRE, TELEFONO, CORREO, IDEMPRESA)
         VALUES (p_nombre, p_telefono, p_correo, p_id_empresa);
         
