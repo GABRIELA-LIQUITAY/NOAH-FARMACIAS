@@ -73,14 +73,14 @@ DELIMITER ;
 
 DELIMITER //
 
-CREATE TRIGGER before_insert_reserva_trigger
+CREATE TRIGGER before_insert_pedido_trigger
 BEFORE INSERT ON PEDIDO
 FOR EACH ROW
 BEGIN
-    DECLARE reserva_count INT;
+    DECLARE pedido_count INT;
     
-    SELECT COUNT(*) INTO reserva_count
-        FROM RESERVA
+    SELECT COUNT(*) INTO pedido_count
+        FROM PEDIDO
     WHERE IDCLIENTE = NEW.IDCLIENTE
         AND IDPRODUCTO = NEW.IDPRODUCTO
         AND FECHA = NEW.FECHA
