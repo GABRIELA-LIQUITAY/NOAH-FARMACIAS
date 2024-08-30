@@ -105,7 +105,7 @@ DIAGRAMA DE ENTIDAD-RELACION
 **Ejemplo de consulta:**
 
 ```sql
-SELECT * FROM ReservasPorFecha
+SELECT * FROMPedidoPorFecha
 WHERE Fecha BETWEEN '2010-12-01' AND '2023-12-31'
 ORDER BY Fecha ASC;
 ```
@@ -123,7 +123,7 @@ ORDER BY Fecha ASC;
 **Ejemplo de consulta:**
 
 ```sql
-SELECT * FROM ReservasPorMesa
+SELECT * FROM PedidoPorProducto
 ORDER BY TotalReservas DESC;
 ```
 
@@ -139,7 +139,7 @@ ORDER BY TotalReservas DESC;
 **Ejemplo de consulta:**
 
 ```sql
-SELECT * FROM CancelacionesPorTipoReserva
+SELECT * FROM CancelacionesPorTipoPedido
 ORDER BY TotalCancelaciones DESC;
 ```
 
@@ -160,7 +160,7 @@ ORDER BY TotalCancelaciones DESC;
 **Ejemplo de uso:**
 
 ```sql
-SELECT mesa_cancelada(10);
+SELECT producto_cancelado(10);
 ```
 
 **Nota:** La función solo verifica si el producto está cancelado en algun pedido. No indica si producto está disponible para una nueva pedido en este momento.
@@ -182,7 +182,7 @@ SELECT mesa_cancelada(10);
 **Ejemplo de uso:**
 
 ```sql
-SELECT contar_reservas_cliente(5, '2023-12-01', '2023-12-31');
+SELECT contar_pedido_cliente(5, '2023-12-01', '2023-12-31');
 ```
 
 **Nota:** La función no toma en cuenta las cancelaciones de pedidos.
@@ -202,7 +202,7 @@ SELECT contar_reservas_cliente(5, '2023-12-01', '2023-12-31');
 **Ejemplo de uso:**
 
 ```sql
-SELECT cantidad_productos_por_empresae(2);
+SELECT cantidad_productos_por_empresa(2);
 ```
 
 ## Documentación de Triggers 
