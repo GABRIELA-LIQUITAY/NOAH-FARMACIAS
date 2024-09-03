@@ -18,34 +18,39 @@ Implementar una base de datos relacional que satisfaga todas las necesidades que
 
 ## Descripción de la Base de Datos - SISTEMA DE REGISTRO DE PEDIDOS EN NOAH
 
-Esta base de datos está diseñada para gestionar pedidos en Noah así como la información relacionada con clientes, empleados, tipos de pedido. A continuación se detallan los elementos principales de la base de datos:
+Esta base de datos está diseñada para gestionar información relacionada con clientes, empleados, productos, sucursales. A continuación se detallan los elementos principales de la base de datos:
 
 ### Tablas:
 
-1. **CLIENTE**:
+1. **EMPLEADO**:
+   - Almacena informacion relacionada a los empleados de cada sucursal.
+   - Atributos: IDEMPLEADO, IDSUCURSAL, APELLIDO Y NOMBRE, CUIL, TELEFONO.
+  
+2.**SUCURSAL**: 
+   - Almacena informacion relacionada a cada sucursal.
+   - Aributos: IDSUCURSAL, NOMBRE, CIUDAD.
+
+3. **CLIENTE**:
    - Almacena información sobre los clientes que realizan pedidos.
    - Atributos: IDCLIENTE, NOMBRE, TELEFONO, CORREO.
+  
 
-2. **EMPLEADO**:
-   - Contiene información sobre los empleados involucrados en el proceso de pedidos.
-   - Atributos: IDEMPLEADO, NOMBRE, TELEFONO, CORREO, IDRESTAURANTE.
 
-3. **DUEÑO**:
-   - Guarda datos sobre los dueños de Noah (no se utiliza explícitamente en el proceso de pedidos).
+
+
+
+
 
 4. **TIPOPEDIDO**:
    - Define diferentes tipos de pedidos para clasificarlas según su propósito o requisitos específicos.
    - Atributos: IDTIPOPEDIDO, TIPO.
 
-5. **EMPRESA**:
-   - Almacena información sobre Noah disponibles.
-   - Atributos: IDEMPRESA, NOMBRE, DIRECCION, TELEFONO.
 
-6. **PRODUCTO**:
+5. **PRODUCTO**:
    - Contiene información sobre los productos disponibles en Noah.
    - Atributos: IDPRODUCTO, IDREMPRESA, CAPACIDAD, DISPONIBLE.
 
-7. **PEDIDO**:
+6. **PEDIDO**:
    - Registra los pedidos realizados por los clientes.
    - Atributos: IDPEDIDO, IDCLIENTE, IDPRODUCTO, IDEMPLEADO, IDTIPOPEDIDO, FECHA.
 
