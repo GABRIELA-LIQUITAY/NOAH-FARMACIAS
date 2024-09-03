@@ -1,23 +1,20 @@
-## CREACION BASE DE UNA APP PARA EL SISTEMA DE REGISTRO DE PEDIDOS EN NOAH
+## PRINNS
 
 ### Problema:
+En la actualidad las grandes empresas administran sus negocios con sistemas cada vez mas automatizados que les permite realizar operaciones cada vez mas rapidas y almacenar grandes cantidades de datos.
+PRINNS es una Base de Datos diseñada para resolver los problemas relacionados a la gestion, registro y almacenamiento de productos, clientes, ventas, proveedores y empleados de NOAH-FARM, una cadena de farmacias ubicada en el Noroeste del pais. 
 
-Nuestro equipo de desarrollo está trabajando en un sistema para el registro de pedidos solicitados por clientes a NOAH, un microemprendimiento dedicado a la sublimacion de productos, por ello es necesario diseñar una base de datos eficiente que pueda llevar un registro de pedidos realizados por clientes para mejorar el servicio hacia los mismos.
 
 ### Descripción del Problema:
 
-1. **Gestión de Clientes y Empleados**: Necesitamos una base de datos que nos permita registrar la información de los clientes que realizan pedidos, así como de los empleados que registran el mismmo, los encargados de atención al cliente.
+1) **Gestión Sucursales y empleados**: automatizar el control administrativo de todas las sucursales de NOAH-FARM, considerando los empleados de cada una de ellas como asi tambien llevar un registro con sus clientes. 
 
-2. **Gestión de Tipos de Pedidos**: Es importante poder clasificar los pedidos según su tipo, ya sea una pedido por unidad, uno por mayor. Esto nos ayudará a organizar mejor el flujo de trabajo y adaptar nuestros servicios según las necesidades del cliente.
+2) Gestión de Transacciones: llevar a cabo el registro de las ventas realizadas en cada sucursal cada día, como asi tambien el registro de los medios de pago y facturación utilizadas para dicha compra. 
 
-3. **Gestión de Productos y Disponibilidad**: La base de datos debe permitirnos registrar la disponibilidad de productos en Noah, así como gestionar su capacidad y estado (en stock o sin stock). Esto es fundamental para garantizar una asignación eficiente de productos y evitar conflictos en los pedidos.
-
-4. **Registro de Pedidos**: Necesitamos un sistema que pueda registrar de manera detallada cada pedido realizado, incluyendo la fecha y hora del mismo, el cliente que la realizó, los productos solicitados, el empleado que atendió este y el tipo de pedido.
 
 ### Objetivo:
 
-Diseñar e implementar una base de datos relacional que satisfaga todas las necesidades de gestión de pedidos para nuestro sistema de REGISTRO PARA PEDIDOS EN NOAH. Esta base de datos deberá ser eficiente, escalable y fácil de mantener, permitiendo una gestión ágil y precisa de todas las operaciones relacionadas con las reservas.
-
+Implementar una base de datos relacional que satisfaga todas las necesidades que NOAH-FARM con el objeto de almacenar y gestionar información relevante sobre los productos farmacéuticos, ventas, clientes, empleados, proveedores y sucursales permite realizar operaciones de inventario, seguimiento de ventas, gestión de proveedores, y control de clientes.
 
 ## Descripción de la Base de Datos - SISTEMA DE REGISTRO DE PEDIDOS EN NOAH
 
