@@ -25,46 +25,35 @@ Esta base de datos está diseñada para gestionar información relacionada con c
 1. **EMPLEADO**:
    - Almacena informacion relacionada a los empleados de cada sucursal.
    - Atributos: IDEMPLEADO, IDSUCURSAL, APELLIDO Y NOMBRE, CUIL, TELEFONO.
-  
-2.**SUCURSAL**: 
+
+2. **SUCURSAL**: 
    - Almacena informacion relacionada a cada sucursal.
    - Aributos: IDSUCURSAL, NOMBRE, CIUDAD.
 
 3. **CLIENTE**:
    - Almacena información sobre los clientes que realizan pedidos.
    - Atributos: IDCLIENTE, NOMBRE, TELEFONO, CORREO.
+
+4. **FACTURACION**:
+   - Almacena información de las facturas que cada sucursal dia a dia.
+   - Atributos: ID, IDSUCURSAL, FHVENTA, TIPOCOMPROBANTE, CAJA, LEGAJO, NROCOMPROBANTE, IMPORTE.
+
+5. **TIPO COMPROBANTE** :
+   - Almacena información de tipos de comprobantes que emite cada tienda.
+   - Atributos: ID, NOMBRE, ESTADO.
   
-
-
-
-
-
-
-
-4. **TIPOPEDIDO**:
-   - Define diferentes tipos de pedidos para clasificarlas según su propósito o requisitos específicos.
-   - Atributos: IDTIPOPEDIDO, TIPO.
-
-
 5. **PRODUCTO**:
    - Contiene información sobre los productos disponibles en Noah.
    - Atributos: IDPRODUCTO, IDREMPRESA, CAPACIDAD, DISPONIBLE.
 
-6. **PEDIDO**:
-   - Registra los pedidos realizados por los clientes.
-   - Atributos: IDPEDIDO, IDCLIENTE, IDPRODUCTO, IDEMPLEADO, IDTIPOPEDIDO, FECHA.
+6. **FECHAVENTA**:
+   - Contiene información de la fecha de venta de cada tienda, y el estado en que se encuentra.
+Atributos: FVENTA, IDSUCURSAL, PRODUCTO
+
 
 ### Problemática Resuelta:
 
-Esta base de datos permite gestionar eficientemente el proceso de reserva en restaurantes, desde la información de los clientes y empleados hasta la disponibilidad de mesas y el registro de reservas. Algunos aspectos que aborda incluyen:
-
-- Registro de clientes y empleados involucrados en el proceso de pedidos.
-- Clasificación de los pedidos según su tipo.
-- Gestión de la disponibilidad de los productos.
-- Registro detallado de pedidos realizados, incluyendo la fecha, cliente, producto, empleado y tipo de pedido.
-
-En resumen, esta base de datos proporciona una estructura para organizar y gestionar eficientemente las operaciones de pedidos en Noah, lo que contribuye a mejorar el servicio ofrecido a los clientes y optimizar las operaciones de Noah.
-*/
+----
 
 
 
