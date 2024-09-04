@@ -48,7 +48,11 @@ Esta base de datos está diseñada para gestionar información relacionada con c
 
 6. **FECHAVENTA**:
    - Contiene información de la fecha de venta de cada tienda, y el estado en que se encuentra.
-Atributos: FVENTA, IDSUCURSAL, PRODUCTO
+   - Atributos: FVENTA, IDSUCURSAL, PRODUCTO
+
+7. **FACTURACIONCAB**:
+   - Almacena información de las facturas que emite cada tienda en el día, mes y año.
+   - Atributos: ID, IDTIENDA, FHVENTA, TIPOCOMPROBANTE, CAJA, LEGAJO, NROCOMPROBANTE, IMPORTE.
 
 
 ### Problemática Resuelta:
