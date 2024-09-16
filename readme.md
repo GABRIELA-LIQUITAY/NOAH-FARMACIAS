@@ -24,7 +24,7 @@ Esta base de datos está diseñada para gestionar información relacionada con c
 
 1. **EMPLEADO**:
    - Almacena informacion relacionada a los empleados de cada sucursal.
-   - Atributos: IDEMPLEADO, IDSUCURSAL, APELLIDO Y NOMBRE, CUIL, TELEFONO.
+   - Atributos: IDEMPLEADO, IDSUCURSAL, APENOM, CUIL, TELEFONO.
 
 2. **SUCURSAL**: 
    - Almacena informacion relacionada a cada sucursal.
@@ -53,17 +53,24 @@ Esta base de datos está diseñada para gestionar información relacionada con c
 7. **FACTURACIONCAB**:
    - Almacena información de las facturas que emite cada tienda en el día, mes y año.
    - Atributos: ID, IDTIENDA, FHVENTA, TIPOCOMPROBANTE, CAJA, LEGAJO, NROCOMPROBANTE, IMPORTE.
+  
+8. **TIPO COMPROBANTE**:
+
+almacena información de los diferentes tipos de comprobantes que puede tener una tienda.
+Atributos: ID, NOMBRE, ESTADO.
 
 
 ### Problemática Resuelta:
 
-----
+PRINNS permite llevar un control totalmente administrativo, empezando por empleados y clientes; ademas gestiona de manera más eficaz el control de las ventas que ingresan en el día, mes y año para cualquier tipo de RITAIL.
+
+----https://github.com/GABRIELA-LIQUITAY/NOAH-FARMACIAS/blob/main/readme.md
 
 
 
 DIAGRAMA DE ENTIDAD-RELACION
 
-![image](https://github.com/GABRIELA-LIQUITAY/NOAH_SISTEMAS-LIQUITAY-NADIA/assets/173738215/25734995-5f56-430a-85ed-352b0a99e3a0)
+
 
 
 
