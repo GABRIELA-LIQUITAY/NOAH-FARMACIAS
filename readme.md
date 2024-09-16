@@ -59,6 +59,11 @@ Esta base de datos está diseñada para gestionar información relacionada con c
 almacena información de los diferentes tipos de comprobantes que puede tener una tienda.
 Atributos: ID, NOMBRE, ESTADO.
 
+9. **MEDIO PAGO**:
+
+Registra el medio de pago por el cual se realizan las transacciones.
+Atributos: IDMEDIODEPAGO, IDSUCURSAL, FHVENTA, TIPOCOMPROBANTE, NROCOMPROBANTE, LEGAJO, VARIEDAD, IMPORTE.
+
 
 ### Problemática Resuelta:
 
