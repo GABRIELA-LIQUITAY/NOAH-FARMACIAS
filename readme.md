@@ -16,7 +16,7 @@ PRINNS es una Base de Datos diseñada para resolver los problemas relacionados a
 
 Implementar una base de datos relacional que satisfaga todas las necesidades que NOAH-FARM con el objeto de almacenar y gestionar información relevante sobre los productos farmacéuticos, ventas, clientes, empleados, proveedores y sucursales permite realizar operaciones de inventario, seguimiento de ventas, gestión de proveedores, y control de clientes.
 
-## Descripción de la Base de Datos - SISTEMA DE REGISTRO DE PEDIDOS EN NOAH
+## Descripción de la Base de Datos - PRINNS
 
 Esta base de datos está diseñada para gestionar información relacionada con clientes, empleados, productos, sucursales. A continuación se detallan los elementos principales de la base de datos:
 
