@@ -1,0 +1,39 @@
+SELECT user FROM mysql.user WHERE user = 'dueño';
+
+-- se crea usuarios
+CREATE USER 'administrador'@'localhost' IDENTIFIED BY '1234';
+CREATE USER 'empleado'@'localhost' IDENTIFIED BY '1234';
+CREATE USER 'dueño'@'localhost' IDENTIFIED BY '1234';
+
+-- se crea roles 
+
+CREATE ROLE administrador;
+CREATE ROLE empleado;
+CREATE ROLE dueño;
+
+-- ortogar permisos y roles
+
+-- se otorga todos los permisos al administrador para la tabla tiendas y empleados  
+GRANT ALL PRIVILEGES ON sucursal.* TO admin;
+GRANT ALL PRIVILEGES ON empleado.* TO admin;
+-- se otorga el  los permisos  select , insert y update al usuario de vendedor 
+GRANT SELECT ON sucursal.* TO empleado;
+GRANT SELECT, INSERT, UPDATE ON empleado.* TO empleado;
+
+-- se otorga el usuario contador solo el permiso de select
+GRANT SELECT ON sucursal.* TO dueño;
+GRANT SELECT ON empleado.* TO dueño;
+
+-- asignar roles a usuarios
+
+GRANT administrador TO 'admin'@'localhost';
+GRANT empleado TO 'empleado'@'localhost';
+GRANT dueño TO 'dueño'@'localhost';
+
+use PRINNS;
+SELECT * FROM SUCURSAL;
+
+GRANT SELECT ON prinns.* TO 'contador'@'localhost';
+
+ INSERT INTO SUCURSAL (ID,NOMBRE,CIUDAD) VALUES
+('B001','NOAH-FARM - San Salvador','Jujuy');
