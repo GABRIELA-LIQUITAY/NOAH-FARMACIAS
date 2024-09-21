@@ -16,7 +16,7 @@ BEGIN
 
     -- Insertamos la cabecera de la factura
     INSERT INTO FACTURACIONAB (IDSUCURSAL, FHVENTA, TIPOCOMPROBANTE, CAJA, LEGAJO, NROCOMPROBANTE, IMPORTE)
-    VALUES (p_id_tienda, p_fecha_venta, p_tipo_comprobante, p_caja, p_legajo, p_nro_comprobante, p_importe_total);
+    VALUES (p_id_sucursal, p_fecha_venta, p_tipo_comprobante, p_caja, p_legajo, p_nro_comprobante, p_importe_total);
 
     -- Obtenemos el ID de la factura recién insertada
     SET v_id_factura = LAST_INSERT_ID();
