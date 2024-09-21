@@ -171,8 +171,107 @@ SELECT cliente_compro_mes(243209351, 09, 2024) AS 'EL CLIENTE COMPRO ESTE MES ';
 
 -![clientecompra](https://github.com/user-attachments/assets/0e03726c-2268-4f3c-8228-da5c164e16eb)
 
+##TRIGGERS
+
+Disparadores tr_auditoria_facturacioncab
+Descripción: realiza cambios en el campo 'IMPORTE' de la tabla FACTURACIONAB
+
+Detalles:
+
+Tabla afectada: FACTURACIONAB
+
+Acción: MODIFICACION
+
+Información registrada: id_factura, importación, valor_anterior. valor_nuevo
+
+Ejemplo:
+
+El tigger se activa despues que se realiza una modificacion en la tabla facturacionab
+
+si se modifica el campo importar, el trigger insertará un nuevo registro en la tabla de auditoria_factutacionab con la siguiente información
+
+id_factura: El identificador de la factura afectada.
+campo_modificado: El nombre del campo que se modificó (en este caso, siempre será 'IMPORTE').
+valor_anterior: El valor original del campo antes de la modificación.
+valor_nuevo: El nuevo valor del campo después de la modificación.
+fecha_modificacion: La fecha y hora en que se realizó la modificación.
+usuario: El nombre del usuario que realizó la modificación.
+Desencadenantes tr_verificar_importe_total
+Descripción: tiene como objetivo garantizar que la importación total de los detalles de una factura no supere la importación total de la cabecera de la factura antes de insertar un nuevo detalle.
+
+Tabla afectada: FACTURACIONDET
+Acción: INSERCCION
+Información registrada: importar
+El trigger tr_verificar_importe_total Es importante para mantener la integridad de los datos en el sistema de facturación, evitando errores y asegurando que las importaciones totales de las facturas sean correctas.
 
 
+Tabla afectada: FACTURACIONAB
+Acción: INSERCCION
+Información registrada: empleado_sucursal
+
+##PROCEDIMIENTOS
+
+**Procedimiento registrar_factura**
+Descripción: Registre una nueva factura de forma más estructurada y segura, evitando errores de inserción de datos.
+
+Parámetros:
+
+p_detalles: son de tipo JSON para poder manejar los detalles de la factura de forma más flexible
+
+
+
+**Procedimiento registrar_medio_pago**
+Descripción: resgista un nuevo medio de pago asociado a una determinada venta o transacción, este proceso se encarga de validar la información proporcionada y de insertar los datos en la tabla correspondiente
+
+Parámetros:
+
+p_id_sucursal: Identificador único de la tienda donde se realizó la venta.
+p_fecha_venta: Fecha en que se realizó la venta.
+p_tipo_comprobante: Tipo de comprobante emitido (factura, ticket, etc.).
+p_nro_comprobante: Número del comprobante.
+p_legajo: Identificador del empleado que procesó la venta.
+p_variedad: Identificador de la variedad de pago utilizado (efectivo, tarjeta, transferencia, etc.). -p_importe: Importación total de la transacción.
+Si la variedad es válida, se inserta un nuevo registro en la tabla MEDIODEPAGO con los datos proporcionados en los parámetros de entrada.
+
+**Procedimiento para registrar_sucursal**
+Descripción: tiene como objetivo principal registrar una nueva sucursal en la base de datos, asegurando que el ID de cada sucursal sea único.
+
+Parámetros:
+
+p_id: Identificador único de la tienda (clave primaria).
+p_nombre: Nombre de la sucursal.
+p_ciudad: Ciudad donde se encuentra la Sucursal.
+Si la tienda no existe, se inserta un nuevo registro en la tabla TIENDA con los valores de los parámetros de entrada, en caso contrario dispara un mensaje '45000' SET MESSAGE_TEXT = 'Sucursal ya existente'.
+
+
+**Usuarios y Roles**
+Permisos específicos:
+Administrador
+
+crear, modificar y eliminar sucursales y empleados
+ejecutar cualquier procedimiento almecenado
+Ver todos los datos de las tablas.
+empleado:
+
+Consultar información de sucursales y empleados.
+Crear nuevos empleados.
+Modificar información de los empleados que crea.
+Dueño:
+
+Consultar información de Sucursales y empleados.
+Generar informes de ventas.
+Ejemplo de cambio de permisos:
+
+GRANT SELECT ON proyecto_cismo.* TO 'dueño'@'localhost';
+ INSERT INTO sucursal (ID,NOMBRE,CIUDAD) VALUES
+ ('B001','NOAH-FARM - San Salvador','Jujuy')
+
+**Copia de seguridad**
+Para proteger los datos una copia de seguridad DUMPPRINNS.sql
+
+Restauración: Si se produce algún problema en la base de datos PRINNS (falla del servidor, eliminación accidental de datos, etc.), puedes restaurar el estado anterior utilizando el dump.
+Migración: la base de datos de cismo se puede mover a otro servidor o cambiar su estructura sin perder datos.
+Desarrollo: Los volcados son útiles para crear entornos de desarrollo o pruebas a partir de una base de datos de producción.
 
 
 
