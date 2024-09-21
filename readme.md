@@ -88,9 +88,54 @@ INSERT INTO EMPLEADO (ID, CUIL, APENOM, LEGAJOREAL) VALUES
 
 ---![empleado](https://github.com/user-attachments/assets/920fcd1e-d8d4-47f6-be3f-c4cff9e94299)
 
-INSERT INTO TIPODECOMPROBANTE (ID, NOMBRE) VALUES
+INSERT INTO TIPOCOMPROBANTE (ID, NOMBRE) VALUES
 
 ---![TIPOCOMPROBANTE](https://github.com/user-attachments/assets/2f530316-3d7a-40ac-a1b9-86481cecd279)
+
+INSERT INTO FACTURACIONDET (IDFACTURA, DESCRIPCION, IMPORTE) VALUES
+
+---![FACTURACIONDET](https://github.com/user-attachments/assets/2808dcae-d21c-443a-9c28-77cf22ea3f73)
+
+INSERT INTO FACTURACIONAB(ID, IDSUCURSAL,FHVENTA,TIPOCOMPROBANTE,CAJA,LEGAJO,NROCOMPROBANTE,IMPORTE) VALUES
+
+---![FACTURACIONAB](https://github.com/user-attachments/assets/c504111f-86fb-4b63-9b35-0a4267eeca5c)
+
+NSERT INTO MEDIODEPAGO(IDMEDIODEPAGO, IDSUCURSAL,FHVENTA,TIPOCOMPROBANTE,CAJA,LEGAJO,NROCOMPROBANTE, IMPORTE) VALUES
+
+--![image](https://github.com/user-attachments/assets/2ffd0c76-f624-4e5e-b601-092f7eff4798)
+
+## VISTAS
+
+**Vista: sucursales_por_ciudad**
+
+Descripción: muestra las distintas ciudades que están ubicadas las sucursales de NOAHFARM 
+
+consulta:
+
+SELECT 
+* 
+FROM sucursal_por_ciudad ;
+
+--![sucursalporciudad](https://github.com/user-attachments/assets/91b36c9a-be62-4d2a-ac24-4a1fa8206f3a)
+
+
+**Vista: factura_completa**
+
+Descripción: Unifica la información de la cabecera y el detalle de cada factura, proporcionando una visión completa de cada transacción.
+
+
+consulta:
+
+SELECT 
+* 
+FROM factura_completa;
+
+--![factura completa](https://github.com/user-attachments/assets/f232482c-b4a7-4a01-b3df-c1e213fea862)
+
+
+
+
+
 
 
 
