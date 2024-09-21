@@ -54,6 +54,10 @@ Atributos: ID, NOMBRE.
 Registra el medio de pago por el cual se realizan las transacciones.
 Atributos: IDMEDIODEPAGO, IDSUCURSAL, FHVENTA, TIPOCOMPROBANTE, NROCOMPROBANTE, LEGAJO, IMPORTE.
 
+10. **EMPLEADO_SUCURSAL**:
+    - Contiene información de los empleados que pertenecen a las distintas SUCURSALES
+Atributos: ID, LEGAJO, IDSUCURSAL.
+
 
 ### Problemática Resuelta:
 
@@ -65,6 +69,31 @@ DIAGRAMA DE ENTIDAD-RELACION
 
 
 ---![image](https://github.com/user-attachments/assets/64d0e029-60fe-4c63-8729-285210e4178a)
+
+
+## INSERCION DE DATOS
+
+Los registros se realizaron mediante insert, para las siguientes tablas
+
+ INSERT INTO SUCURSAL (ID, IDSUCURSAL, NOMBRE, CIUDAD) Values
+ 
+---![sucursal](https://github.com/user-attachments/assets/7731b4a4-79a4-41df-ad3e-f0d99a434f34)
+
+INSERT INTO EMPLEADO_SUCURSAL (ID,LEGAJO, IDSUCURSAL) VALUES
+
+---![EMPLEADO_SUCURSAL](https://github.com/user-attachments/assets/9607ffa8-6352-4652-b46f-867e2316bd6b)
+
+INSERT INTO EMPLEADO (ID, CUIL, APENOM, LEGAJOREAL) VALUES
+
+
+---![empleado](https://github.com/user-attachments/assets/920fcd1e-d8d4-47f6-be3f-c4cff9e94299)
+
+INSERT INTO TIPODECOMPROBANTE (ID, NOMBRE) VALUES
+
+---![TIPOCOMPROBANTE](https://github.com/user-attachments/assets/2f530316-3d7a-40ac-a1b9-86481cecd279)
+
+
+
 
 
 
