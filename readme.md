@@ -133,6 +133,44 @@ FROM factura_completa;
 --![factura completa](https://github.com/user-attachments/assets/f232482c-b4a7-4a01-b3df-c1e213fea862)
 
 
+##FUNCIONES 
+
+**Fucion Total_diario**
+
+Descripción: fue diseñanda para calcular el total de ventas realizadas.
+
+Parámetros
+
+fecha_consulta (DATE): Este parámetro de entrada especifica la fecha para la cual se desea obtener el total de ventas.
+Tipo de devolución:
+
+DECIMAL(14,4): La función devuelve un valor numérico de tipo decimal. Este tipo de datos representa valores monetarios con precisión.
+consulta:
+
+SELECT total_diario ('2024-09-07');
+
+-![total diario](https://github.com/user-attachments/assets/32234939-5950-41dc-bb85-da8e8469bb9d)
+
+
+
+**Función cliente_compro_mes**
+Descripción: determina si un cliente espesifico realiza alguna compra durante un mes o año determinado
+
+Parámetros
+
+legajo (INT): El legajo del cliente a consultar.
+mes (INT): El número del mes a verificar (1-12).
+anio (INT): El año a verificar.
+Tipo de devolución
+
+BOOLEAN: La función devuelve un valor booleano (TRUE o FALSE). VERDADERO si el cliente realizó al menos una compra en el mes y año especificado, FALSO en caso contrario.
+
+consulta:
+
+SELECT cliente_compro_mes(243209351, 09, 2024) AS 'EL CLIENTE COMPRO ESTE MES ';
+
+-![clientecompra](https://github.com/user-attachments/assets/0e03726c-2268-4f3c-8228-da5c164e16eb)
+
 
 
 
