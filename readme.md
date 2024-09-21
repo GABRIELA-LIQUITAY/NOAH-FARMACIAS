@@ -133,7 +133,7 @@ FROM factura_completa;
 --![factura completa](https://github.com/user-attachments/assets/f232482c-b4a7-4a01-b3df-c1e213fea862)
 
 
-##FUNCIONES 
+## FUNCIONES:
 
 **Fucion Total_diario**
 
@@ -171,7 +171,7 @@ SELECT cliente_compro_mes(243209351, 09, 2024) AS 'EL CLIENTE COMPRO ESTE MES ';
 
 -![clientecompra](https://github.com/user-attachments/assets/0e03726c-2268-4f3c-8228-da5c164e16eb)
 
-##TRIGGERS
+## TRIGGERS
 
 Disparadores tr_auditoria_facturacioncab
 Descripción: realiza cambios en el campo 'IMPORTE' de la tabla FACTURACIONAB
@@ -209,7 +209,7 @@ Tabla afectada: FACTURACIONAB
 Acción: INSERCCION
 Información registrada: empleado_sucursal
 
-##PROCEDIMIENTOS
+## PROCEDIMIENTOS
 
 **Procedimiento registrar_factura**
 Descripción: Registre una nueva factura de forma más estructurada y segura, evitando errores de inserción de datos.
@@ -244,7 +244,7 @@ p_ciudad: Ciudad donde se encuentra la Sucursal.
 Si la tienda no existe, se inserta un nuevo registro en la tabla TIENDA con los valores de los parámetros de entrada, en caso contrario dispara un mensaje '45000' SET MESSAGE_TEXT = 'Sucursal ya existente'.
 
 
-##Usuarios y Roles
+## Usuarios y Roles
 
 Permisos específicos:
 Administrador
@@ -267,7 +267,7 @@ GRANT SELECT ON proyecto_cismo.* TO 'dueño'@'localhost';
  INSERT INTO sucursal (ID,NOMBRE,CIUDAD) VALUES
  ('B001','NOAH-FARM - San Salvador','Jujuy')
 
-##Copia de seguridad
+## Copia de seguridad
 
 Para proteger los datos una copia de seguridad DUMPPRINNS.sql
 
