@@ -33,7 +33,7 @@ GRANT dueño TO 'dueño'@'localhost';
 use PRINNS;
 SELECT * FROM SUCURSAL;
 
-GRANT SELECT ON prinns.* TO 'contador'@'localhost';
+GRANT SELECT ON prinns.* TO 'dueño'@'localhost';
 
  INSERT INTO SUCURSAL (ID,NOMBRE,CIUDAD) VALUES
 ('B001','NOAH-FARM - San Salvador','Jujuy');
