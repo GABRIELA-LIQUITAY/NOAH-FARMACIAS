@@ -244,7 +244,8 @@ p_ciudad: Ciudad donde se encuentra la Sucursal.
 Si la tienda no existe, se inserta un nuevo registro en la tabla TIENDA con los valores de los parámetros de entrada, en caso contrario dispara un mensaje '45000' SET MESSAGE_TEXT = 'Sucursal ya existente'.
 
 
-**Usuarios y Roles**
+##Usuarios y Roles
+
 Permisos específicos:
 Administrador
 
@@ -266,7 +267,8 @@ GRANT SELECT ON proyecto_cismo.* TO 'dueño'@'localhost';
  INSERT INTO sucursal (ID,NOMBRE,CIUDAD) VALUES
  ('B001','NOAH-FARM - San Salvador','Jujuy')
 
-**Copia de seguridad**
+##Copia de seguridad
+
 Para proteger los datos una copia de seguridad DUMPPRINNS.sql
 
 Restauración: Si se produce algún problema en la base de datos PRINNS (falla del servidor, eliminación accidental de datos, etc.), puedes restaurar el estado anterior utilizando el dump.
